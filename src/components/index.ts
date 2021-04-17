@@ -3,6 +3,7 @@ export {default as Badge} from './Badge';
 export {default as Button} from './Button';
 export {default as Card} from './Card';
 export {default as Checkbox} from './Checkbox';
+export {default as ConfirmModal} from './ConfirmModal';
 export {default as DismissableBanner} from './DismissableBanner';
 export {default as Divider} from './Divider';
 export {default as ExpandableContent} from './ExpandableContent';
