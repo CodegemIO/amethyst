@@ -1,0 +1,24 @@
+.PageBlocker {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+  pointer-events: all;
+  background-color: rgba(50, 50, 50, 0.4);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.Open {
+    display: flex;
+  }
+
+  .Text {
+    margin-top: var(--spacing-extra-extra-loose);
+    font-size: 2.4rem;
+    color: white;
+  }
+}

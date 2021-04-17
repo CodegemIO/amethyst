@@ -1,0 +1,48 @@
+.ExpandableContent {
+  display: block;
+
+  .TitleWrapper {
+    display: flex;
+    flex-direction: row;
+    background: #f7f8f9;
+    padding: var(--spacing-loose);
+    border: 1px solid var(--divider-color);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.HideBottomBorder {
+      border-bottom: none;
+    }
+
+    h2 {
+      flex: 1;
+      margin: 0;
+      letter-spacing: 0.08rem;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.Content {
+  display: none;
+  background: #f0f0f0;
+  padding: var(--spacing-loose);
+
+  &.Open {
+    display: block;
+  }
+}
+
+.Icon {
+  transform: rotate(0);
+  transition: transform 200ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.Open {
+    transform: rotate(180deg);
+  }
+}

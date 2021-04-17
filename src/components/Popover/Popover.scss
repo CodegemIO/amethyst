@@ -1,0 +1,60 @@
+.Popover {
+  position: relative;
+}
+
+.Content {
+  position: absolute;
+  display: none;
+  border-radius: 0.6rem;
+  padding: var(--spacing-normal);
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 0.1rem rgba(63, 63, 68, 0.05),
+    0 0.5rem 2rem 0 rgba(63, 63, 68, 0.3);
+  list-style: none;
+  z-index: 1101;
+  transform-origin: top right;
+
+  &.Open {
+    display: inline-block;
+  }
+
+  &.Level1 {
+    z-index: 1103;
+  }
+}
+
+.ContentBefore {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: -16px;
+  right: auto;
+  border: 8px solid transparent;
+  border-bottom-color: rgba(27, 31, 35, 0.15);
+}
+
+.ContentAfter {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: -14px;
+  right: auto;
+  border: 7px solid transparent;
+  border-bottom-color: white;
+}
+
+.Backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1100;
+  display: block;
+
+  &.Level1 {
+    z-index: 1102;
+  }
+}

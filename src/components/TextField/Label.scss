@@ -1,0 +1,12 @@
+.Label {
+  display: block;
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin-bottom: var(--spacing-tight);
+
+  span {
+    display: inline-block;
+    margin-left: 0.2rem;
+    color: red;
+  }
+}

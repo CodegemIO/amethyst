@@ -1,0 +1,9 @@
+.InjectedSVG {
+  all: unset;
+  display: inline-block;
+  color: currentColor;
+
+  svg {
+    display: block;
+  }
+}

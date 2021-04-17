@@ -1,0 +1,55 @@
+.Snackbar {
+  position: fixed;
+  bottom: 1.3rem;
+  right: 1.3rem;
+  z-index: 1000000;
+  min-width: 25rem;
+  min-height: 5rem;
+  background-color: #292922;
+  box-shadow: 0 0.3rem 0.5rem -0.1rem rgba(0, 0, 0, 0.2),
+    0 0.6rem 1rem 0 rgba(0, 0, 0, 0.14), 0 0.1rem 1.8rem 0 rgba(0, 0, 0, 0.12);
+  border-radius: 0.3rem;
+  font-size: 1.5rem;
+
+  @media screen and (max-width: 550px) {
+    min-width: calc(100vw - 2rem);
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+.Content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  padding: var(--spacing-loose);
+  padding-right: var(--spacing-normal);
+
+  span {
+    flex: 1;
+  }
+
+  a {
+    color: rgb(220, 0, 78);
+  }
+}
+
+.Close {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2rem;
+  margin-left: var(--spacing-extra-tight);
+  color: var(--error-color);
+
+  &:hover {
+    background: rgba(220, 0, 78, 0.04);
+    cursor: pointer;
+  }
+}

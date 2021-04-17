@@ -1,0 +1,6 @@
+**/*.js
+node_modules
+/scripts
+/builds
+/*-builds
+.eslintrc.js

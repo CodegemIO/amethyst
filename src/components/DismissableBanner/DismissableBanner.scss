@@ -1,0 +1,39 @@
+.DismissableBanner {
+  position: relative;
+  padding: var(--spacing-loose);
+  box-shadow: var(--elevation-low);
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+
+  &.Info {
+    background: #eef9f9;
+    border-top: 0.2rem solid #46c1bf;
+  }
+
+  &.Error {
+    background: #fdf3f0;
+    border-top: 0.2rem solid red;
+  }
+
+  .Content {
+    padding-right: var(--spacing-extra-loose);
+    line-height: 2.4rem;
+  }
+
+  .Close {
+    position: absolute;
+    top: var(--spacing-loose);
+    right: var(--spacing-loose);
+    width: 1.7rem;
+    height: 1.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.2rem;
+
+    &:hover {
+      cursor: pointer;
+      background: rgba(50, 50, 50, 0.2);
+    }
+  }
+}

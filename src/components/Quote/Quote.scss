@@ -1,0 +1,31 @@
+.Quote {
+  display: block;
+  border: 2px solid #eee;
+  padding: 4rem 3rem;
+  margin: 1.5em 0;
+  position: relative;
+  font-size: 1.7rem;
+  line-height: 26px;
+
+  &:before {
+    content: '\201C';
+    position: absolute;
+    top: 0em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--background-color-light);
+    width: 6rem;
+    height: 5rem;
+    font: 10rem 'PT Sans', sans-serif;
+    color: #666;
+    text-align: center;
+  }
+}
+
+.Cite {
+  display: block;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+}

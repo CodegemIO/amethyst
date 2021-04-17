@@ -1,0 +1,55 @@
+.Select {
+  position: relative;
+  width: 100%;
+  height: 4.5rem;
+
+  select {
+    width: 100%;
+    height: 100%;
+    padding: 0 var(--spacing-loose);
+    border: 0.1rem solid #c4cdd5;
+    border-radius: 0.6rem;
+    font-size: 1.6rem;
+    color: black;
+    background-color: white;
+    box-shadow: inset 0 0 0 0.2rem rgba(92, 106, 196, 0),
+      inset 0 0.1rem 0.2rem 0 rgba(99, 115, 129, 0.2);
+    transition-property: border-color, box-shadow;
+    transition-duration: 0.24s;
+    transition-timing-function: cubic-bezier(0.64, 0, 0.35, 1);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: transparent;
+      box-shadow: inset 0 0 0 0.2rem var(--primary-color),
+        inset 0 0.1rem 0.2rem 0 rgba(99, 115, 129, 0.2);
+    }
+
+    &:disabled {
+      border-color: #c4cdd5;
+      box-shadow: inset 0 0 0 0.2rem rgba(92, 106, 196, 0),
+        inset 0 0.1rem 0.2rem 0 rgba(99, 115, 129, 0.2);
+      cursor: not-allowed;
+    }
+  }
+
+  .PrefixIcon {
+    position: absolute;
+    top: 1.35rem;
+    left: var(--spacing-normal);
+    pointer-events: none;
+  }
+
+  .CaretIcon {
+    position: absolute;
+    top: 1.35rem;
+    right: var(--spacing-tight);
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,10 @@
+.Divider {
+  border: none;
+  height: 0.1rem;
+  border-top: 0.1rem solid var(--divider-color);
+  margin: var(--spacing-extra-loose) 0;
+
+  &.Dense {
+    margin: var(--spacing-loose) 0;
+  }
+}

@@ -1,0 +1,29 @@
+.Card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--elevation-medium);
+  outline: 0.1rem solid transparent;
+  overflow: hidden;
+
+  &.ElevationLow {
+    box-shadow: var(--elevation-low);
+  }
+
+  &.ElevationMedium {
+    box-shadow: var(--elevation-medium);
+  }
+
+  &.ElevationHigh {
+    box-shadow: var(--elevation-high);
+  }
+
+  &.FloatOnHover {
+    transition: margin-top 250ms ease-in-out, box-shadow 250ms ease-in-out;
+
+    &:hover {
+      margin-top: -0.8rem;
+      box-shadow: 0 0 0 0.1rem rgba(63, 63, 68, 0.05),
+        0 1.2rem 2rem 0 rgba(63, 63, 68, 0.15);
+    }
+  }
+}

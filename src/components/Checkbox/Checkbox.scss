@@ -1,0 +1,80 @@
+.Checkbox {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+
+  .CheckboxInputWrapper {
+    position: relative;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: var(--spacing-extra-tight);
+    pointer-events: none;
+
+    .CheckboxInputBackdrop {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      background-color: #c4cdd5;
+      border: 0.1rem solid transparent;
+      box-shadow: 0 0 0 1px transparent, 0 1px 0 0 rgba(22, 29, 37, 0.05);
+      border-radius: 3px;
+      transition-property: box-shadow, background-color;
+      transition-duration: 0.1s;
+      transition-timing-function: cubic-bezier(0.64, 0, 0.35, 1);
+
+      &.Checked {
+        background-color: var(--primary-color);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        background: linear-gradient(180deg, #fff, #f9fafb);
+        border-radius: 2px;
+      }
+    }
+
+    .CheckboxIconWrapper {
+      color: var(--primary-color);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: 50% 50%;
+      pointer-events: none;
+      width: 2rem;
+      height: 2rem;
+      transition: transform 0.1s cubic-bezier(0.36, 0, 1, 1);
+      transform: translate(-50%, -50%) scale(0);
+
+      &.Checked {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+  }
+
+  .CheckboxLabel {
+    font-size: 1.5rem;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}

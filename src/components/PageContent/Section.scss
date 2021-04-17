@@ -1,0 +1,37 @@
+@import './breakpoints';
+
+.Section {
+  width: 100%;
+
+  &.BackgroundLight {
+    background-color: var(--background-color-light);
+    color: black;
+  }
+
+  &.BackgroundDark {
+    background-color: var(--background-color-dark);
+    color: white;
+  }
+
+  &.BackgroundWhite {
+    background-color: white;
+    color: inherit;
+  }
+
+  &.BackgroundTransparent {
+    background-color: transparent;
+    color: inherit;
+  }
+
+  .Content {
+    width: var(--page-content-width);
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 6rem 0;
+
+    @media only screen and (max-width: $breakpoint-page-content) {
+      padding: var(--spacing-loose);
+      width: 100%;
+    }
+  }
+}

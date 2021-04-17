@@ -1,0 +1,156 @@
+$breakpoint-modal: 700px;
+
+.Modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1201;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  transition: display 250ms ease-in-out;
+
+  &.Open {
+    display: flex;
+  }
+
+  &.Broken {
+    top: unset;
+
+    .Content {
+      border-radius: 0 !important;
+      min-width: 100vw !important;
+    }
+
+    .Title {
+      h1 {
+        font-size: 2rem !important;
+      }
+    }
+
+    .Children {
+      max-width: 100vw !important;
+      max-height: 75vh !important;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-modal) {
+    top: unset;
+  }
+
+  .Content {
+    min-width: 50rem;
+    min-height: 30rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 3.1rem 4.1rem 0 rgba(32, 42, 53, 0.2),
+      0 0.2rem 1.6rem 0 rgba(32, 42, 54, 0.08);
+    display: flex;
+    flex-direction: column;
+    pointer-events: all;
+
+    @media screen and (max-width: $breakpoint-modal) {
+      border-radius: 0;
+      min-width: 100vw !important;
+    }
+
+    &.Wide {
+      min-width: 70rem;
+
+      @media screen and (max-width: 70rem) {
+        border-radius: 0;
+        min-width: 100vw !important;
+      }
+    }
+
+    .Title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding: 1.6rem 1.8rem;
+      padding-right: 1.5rem;
+      border-bottom: 0.1rem solid var(--background-color-light);
+
+      h1 {
+        flex: 1;
+        margin: 0;
+        font-size: 2.4rem;
+        font-weight: 500;
+
+        @media screen and (max-width: $breakpoint-modal) {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .Title > button {
+      display: inline-block;
+      height: 2.8rem;
+      width: 2.8rem;
+      outline: none;
+      border: none;
+      background: none;
+      font-weight: 300;
+      padding: 0.4rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active {
+        background: var(--background-color-light);
+        border-radius: 0.4rem;
+      }
+    }
+
+    .Children {
+      padding: 1.8rem;
+      max-width: 80vw;
+      max-height: 80vh;
+      overflow: auto !important;
+      overflow-y: scroll;
+
+      &.NoPadding {
+        padding: 0;
+      }
+
+      @media screen and (max-width: $breakpoint-modal) {
+        max-width: 100vw;
+        max-height: 75vh;
+      }
+    }
+
+    .Actions {
+      border-top: 1px solid var(--background-color-light);
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+
+      button {
+        margin-right: var(--spacing-normal);
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.Backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1200;
+  display: block;
+  background-color: rgba(33, 43, 54, 0.4);
+  opacity: 1;
+}

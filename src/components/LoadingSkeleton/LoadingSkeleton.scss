@@ -1,0 +1,44 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.SkeletonItem {
+  position: relative;
+  will-change: opacity;
+  animation: pulse 0.7s linear infinite alternate;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    background-color: #dfe3e8;
+    border-radius: 0.3rem;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 0.45;
+    }
+
+    100% {
+      opacity: 0.9;
+    }
+  }
+
+  &.Title {
+    width: 20rem;
+    height: 2.3rem;
+    margin-bottom: var(--spacing-extra-tigh);
+  }
+
+  &.Line {
+    width: 100%;
+    height: 1rem;
+    margin-top: var(--spacing-loose);
+  }
+}

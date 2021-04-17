@@ -1,0 +1,15 @@
+{
+  "arrowParens": "always",
+  "bracketSpacing": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "quoteProps": "preserve",
+  "importOrder": [
+    "^react(.*)$",
+    "^(?!\\.).*",
+    "^[.\\/].*(?<!\\.scss)$",
+    "^[..\\/]"
+  ],
+  "importOrderSeparation": false
+}

@@ -1,0 +1,30 @@
+.List {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+
+  .Sublist {
+    flex: 1;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    font-size: 1.6rem;
+
+    li {
+      margin: var(--spacing-tight) 0;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  ol {
+    li {
+      padding-left: var(--spacing-loose);
+    }
+  }
+}
