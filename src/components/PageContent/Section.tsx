@@ -16,7 +16,7 @@ const Section: React.FC<Props> = ({children, backgroundType = 'light'}) => (
       [styles.BackgroundTransparent]: backgroundType === 'transparent',
     })}
   >
-    <div className={styles.Section}>{children}</div>
+    <div className={styles.Content}>{children}</div>
   </section>
 );
 
