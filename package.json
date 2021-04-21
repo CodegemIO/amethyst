@@ -1,6 +1,6 @@
 {
   "name": "@codegemio/amethyst",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "sideEffects": false,
   "main": "dist/index.js",
