@@ -2,6 +2,7 @@
   "name": "@codegemio/amethyst",
   "version": "1.0.8",
   "description": "",
+  "sideEffects": false,
   "main": "dist/index.js",
   "scripts": {
     "build": "rollup -c",
