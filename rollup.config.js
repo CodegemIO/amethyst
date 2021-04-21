@@ -1,5 +1,4 @@
 import jsx from 'acorn-jsx';
-import commonjs from '@rollup/plugin-commonjs';
 import {nodeResolve} from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -13,7 +12,7 @@ export default {
   output: [
     {
       file: pkg.main,
-      format: 'cjs',
+      format: 'es',
       exports: 'named',
       sourcemap: true,
       strict: false,
@@ -27,7 +26,6 @@ export default {
     babel({
       presets: ['@babel/preset-react'],
     }),
-    commonjs(),
     peerDepsExternal(),
     postcss({
       extract: false,
