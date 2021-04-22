@@ -14,11 +14,11 @@
     width: 100%;
   }
 
-  &--loose {
+  &.Loose {
     width: 150rem;
   }
 
-  &--centered {
+  &.Centered {
     display: flex;
     flex-direction: column;
     justify-content: center;
