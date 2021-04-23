@@ -1,6 +1,5 @@
 import React, {useMemo} from 'react';
 import LoadingSpinner from '../LoadingSpinner';
-import {Theme} from '../../theme';
 import {classNames} from '../../utilities';
 import styles from './Button.scss';
 
@@ -65,7 +64,7 @@ const Button: React.FC<Props> = ({
             color={
               ['primary', 'error'].includes(color)
                 ? 'white'
-                : Theme.primaryColor
+                : 'var(--primary-color)'
             }
           />
         ) : (
@@ -90,7 +89,9 @@ const Button: React.FC<Props> = ({
       {loading ? (
         <LoadingSpinner
           color={
-            ['primary', 'error'].includes(color) ? 'white' : Theme.primaryColor
+            ['primary', 'error'].includes(color)
+              ? 'white'
+              : 'var(--primary-color)'
           }
         />
       ) : (
