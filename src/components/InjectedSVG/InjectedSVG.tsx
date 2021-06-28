@@ -30,6 +30,11 @@ const InjectedSVG: React.FC<Props> = ({
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(src);
+
+      if (!response) {
+        return '';
+      }
+
       const svgText = await response.text();
       setSvgData(svgText);
       return svgText;
