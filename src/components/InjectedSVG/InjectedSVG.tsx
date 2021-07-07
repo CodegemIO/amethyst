@@ -36,7 +36,7 @@ const InjectedSVG: React.FC<Props> = ({
       for (let i = 0; i < collection.length; i++) {
         const svg = collection.item(i);
 
-        if (svg) {
+        if (svg && svg.style) {
           svg.style.color = computedStyle.color;
         }
       }
