@@ -1,4 +1,5 @@
-import React, {useRef, useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
+import {validateSVG} from './validateSVG';
 import styles from './InjectedSVG.scss';
 
 interface Props {
@@ -7,7 +8,10 @@ interface Props {
   height?: number | string;
   color?: string;
   wrapperStyle?: React.CSSProperties;
+  useCache?: boolean;
 }
+
+const CACHE_KEY = 'amethyst-injected-svg-cache';
 
 /**
  * The text content stored at the src location must be trusted,
@@ -19,41 +23,56 @@ const InjectedSVG: React.FC<Props> = ({
   height = '2rem',
   color,
   wrapperStyle,
+  useCache = false,
 }) => {
-  const objectRef = useRef<HTMLObjectElement>(null);
+  const [svgData, setSvgData] = useState<string | undefined>(undefined);
 
-  const onSvgLoad = useCallback(() => {
-    setTimeout(() => {
-      if (!objectRef.current) {
-        return;
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(src);
+
+      if (!response) {
+        return '';
       }
 
-      const {contentDocument} = objectRef.current;
-      const computedStyle = window.getComputedStyle(objectRef.current);
+      const svgText = await response.text();
+      setSvgData(svgText);
+      return svgText;
+    };
 
-      if (contentDocument) {
-        const collection = contentDocument.getElementsByTagName('svg');
+    if (!useCache) {
+      fetchData();
+      return;
+    }
 
-        for (let i = 0; i < collection.length; i++) {
-          const svg = collection.item(i);
+    const cacheData = window.localStorage.getItem(CACHE_KEY);
+    const cache = JSON.parse(cacheData || '{}');
 
-          if (svg && svg.style) {
-            svg.style.color = computedStyle.color;
-          }
-        }
-      }
-    });
-  }, []);
+    const fetchAndCacheData = async () => {
+      const svgText = await fetchData();
+      cache[src] = svgText;
+      window.localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+    };
+
+    if (cache[src]) {
+      setSvgData(cache[src]);
+    } else {
+      fetchAndCacheData();
+    }
+  }, [src, useCache]);
+
+  if (!svgData) {
+    return null;
+  }
+
+  if (!validateSVG(svgData)) {
+    return null;
+  }
 
   return (
-    <object
-      ref={objectRef}
+    <div
       className={styles.InjectedSVG}
-      type="image/svg+xml"
-      data={src}
-      onLoad={onSvgLoad}
-      width={width}
-      height={height}
+      dangerouslySetInnerHTML={{__html: svgData}}
       style={{
         ...wrapperStyle,
         width,
