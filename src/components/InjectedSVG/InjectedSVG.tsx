@@ -23,24 +23,26 @@ const InjectedSVG: React.FC<Props> = ({
   const objectRef = useRef<HTMLObjectElement>(null);
 
   const onSvgLoad = useCallback(() => {
-    if (!objectRef.current) {
-      return;
-    }
+    setTimeout(() => {
+      if (!objectRef.current) {
+        return;
+      }
 
-    const {contentDocument} = objectRef.current;
-    const computedStyle = window.getComputedStyle(objectRef.current);
+      const {contentDocument} = objectRef.current;
+      const computedStyle = window.getComputedStyle(objectRef.current);
 
-    if (contentDocument) {
-      const collection = contentDocument.getElementsByTagName('svg');
+      if (contentDocument) {
+        const collection = contentDocument.getElementsByTagName('svg');
 
-      for (let i = 0; i < collection.length; i++) {
-        const svg = collection.item(i);
+        for (let i = 0; i < collection.length; i++) {
+          const svg = collection.item(i);
 
-        if (svg && svg.style) {
-          svg.style.color = computedStyle.color;
+          if (svg && svg.style) {
+            svg.style.color = computedStyle.color;
+          }
         }
       }
-    }
+    });
   }, []);
 
   return (
