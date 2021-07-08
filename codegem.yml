@@ -1,0 +1,11 @@
+name: amethyst
+open_url: https://github.com/CodegemIO/amethyst
+commands:
+  - name: build
+    command: yarn rollup -c
+  - name: publish
+    command: codegem build && npm publish --access public
+  - name: version:patch
+    command: npm version patch
+  - name: lint
+    command: yarn eslint ./src --ext .ts,.tsx --max-warnings 0
